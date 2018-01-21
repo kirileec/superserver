@@ -1,0 +1,4 @@
+{
+    "msgType": 2,
+    "msg": "{\"base\":{\"internalIp\":\"192.168.1.98\",\"publicIp\":\"1.1.1.1\",\"serial\":\"AAAAAAAAA\",\"queueName\":\"super.server\",\"serverName\":\"周天\"},\"processes\":[{\"pid\":986,\"name\":\"周天Snap服务端.exe\",\"path\":\"C:\\\\客户软件\\\\周天\\\\周天Snap服务端.exe\",\"threadCount\":15,\"privateBytes\":1024000000,\"workingSet\":1024000000,\"workingSetPrivate\":1024000000,\"virtualBytes\":1024000000},{\"pid\":989,\"name\":\"玉河湾Snap服务端.exe\",\"path\":\"C:\\\\客户软件\\\\玉河湾\\\\玉河湾Snap服务端.exe\",\"threadCount\":89,\"privateBytes\":1024000000,\"workingSet\":1024000000,\"workingSetPrivate\":1024000000,\"virtualBytes\":1024000000}],\"datetime\":\"2017-03-26T20:25:17.4564933+08:00\"}"
+}

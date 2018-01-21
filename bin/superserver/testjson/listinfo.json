@@ -1,0 +1,4 @@
+{
+    "msgType": 3,
+    "msg": "{\"base\":{\"internalIp\":\"192.168.1.98\",\"publicIp\":\"1.1.1.1\",\"serial\":\"AAAAAAAAA\",\"queueName\":\"super.server\",\"serverName\":\"周天\"},\"datasnaps\":[{\"guid\":\"nasidhdsfsdfasd\",\"exefilename\":\"周天Snap服务端\",\"dir\":\"C:\\\\客户软件\\\\周天\",\"abc\":\"ZT\"},{\"guid\":\"dsfassadsad\",\"exefilename\":\"玉河湾Snap服务端\",\"dir\":\"C:\\\\客户软件\\\\玉河湾\",\"abc\":\"YHW\"}]}"
+}

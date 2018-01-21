@@ -1,0 +1,4 @@
+{
+    "msgType": 1,
+    "msg": "{\"base\":{\"internalIp\":\"192.168.1.98\",\"publicIp\":\"1.1.1.1\",\"serial\":\"AAAAAAAAA\",\"queueName\":\"super.server\",\"serverName\":\"周天\"},\"cpuload\":9.11,\"maxcpuload\":60,\"maxmemload\":90,\"cpucount\":4,\"busyWorker\":1,\"totalWorker\":4,\"memload\":80,\"datetime\":\"2017-03-26T20:12:18.6075444+08:00\"}"
+}

@@ -1,0 +1,4 @@
+{
+    "msgType": 1,
+    "msg": "{\"ID\":\"\",\"base\":{\"internalIp\":\"192.168.1.98\",\"publicIp\":\"1.1.1.1\",\"serial\":\"AAAAAAAAA\",\"queueName\":\"super.server\",\"serverName\":\"周天\"},\"snapCount\":50,\"runningCount\":8,\"stoppedCount\":17,\"status\":\"健康\",\"datetime\":\"2017-03-26T17:41:14.5025618+08:00\"}"
+}

@@ -1,0 +1,555 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "宇宙超级无敌中心服务器",
+        "description": "既然你诚心诚意地发问了 那我就大发慈悲地告诉你",
+        "version": "1.0.0",
+        "termsOfService": "http://llinx.me/",
+        "contact": {
+            "email": "linx@llinx.me"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/super/about": {
+            "get": {
+                "tags": [
+                    "super"
+                ],
+                "description": "get about message",
+                "operationId": "SuperController.About",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "jwt字符串",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "string"
+                    }
+                }
+            }
+        },
+        "/super/admin/whitelists": {
+            "get": {
+                "tags": [
+                    "super"
+                ],
+                "description": "列出白名单",
+                "operationId": "SuperController.WhiteLists",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "jwt字符串",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/.RegInfo"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/super/checkreg": {
+            "post": {
+                "tags": [
+                    "super"
+                ],
+                "description": "检查注册信息",
+                "operationId": "SuperController.CheckReg",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "jwt字符串",
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "regInfo",
+                        "description": "注册信息",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/.RegInfo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/.RegInfo"
+                        }
+                    }
+                }
+            }
+        },
+        "/super/checkupdate": {
+            "post": {
+                "tags": [
+                    "super"
+                ],
+                "description": "让客户端上传数据",
+                "operationId": "SuperController.UploadData",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "jwt字符串",
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "checkupdate",
+                        "description": "上传数据",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/.Restart"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/.Restart"
+                        }
+                    }
+                }
+            }
+        },
+        "/super/info/server/{server}": {
+            "get": {
+                "tags": [
+                    "super"
+                ],
+                "description": "服务器信息",
+                "operationId": "SuperController.ServerInfo",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "jwt字符串",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "server",
+                        "description": "服务器唯一id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/.ToolSelf"
+                        }
+                    }
+                }
+            }
+        },
+        "/super/info/server/{server}/process/{process}": {
+            "get": {
+                "tags": [
+                    "super"
+                ],
+                "description": "进程信息",
+                "operationId": "SuperController.ProcessInfo",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "jwt字符串",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "server",
+                        "description": "服务器唯一id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "process",
+                        "description": "进程guid",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/.ProcessInfos"
+                        }
+                    }
+                }
+            }
+        },
+        "/super/list/search/{value}": {
+            "get": {
+                "tags": [
+                    "super"
+                ],
+                "description": "搜索app",
+                "operationId": "SuperController.SearchSnap",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "jwt字符串",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "value",
+                        "description": "查询字符",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/.DataSnapStatus"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/super/list/searchabc/{value}": {
+            "get": {
+                "tags": [
+                    "super"
+                ],
+                "description": "搜索app以首字母",
+                "operationId": "SuperController.SearchSnapABC",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "jwt字符串",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "value",
+                        "description": "查询字符",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/.DataSnapStatus"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/super/list/server/{server}": {
+            "get": {
+                "tags": [
+                    "super"
+                ],
+                "description": "列出所有服务器",
+                "operationId": "SuperController.ListServers",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "jwt字符串",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/.ToolSelf"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/super/list/state/{state}": {
+            "get": {
+                "tags": [
+                    "super"
+                ],
+                "description": "按状态列出所有Snap",
+                "operationId": "SuperController.ListByState",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "jwt字符串",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "state",
+                        "description": "状态",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/.DataSnapStatus"
+                        }
+                    }
+                }
+            }
+        },
+        "/super/log/latest": {
+            "get": {
+                "tags": [
+                    "super"
+                ],
+                "description": "最近一小时重启记录",
+                "operationId": "SuperController.LatestRestartLog",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "jwt字符串",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/.RestartLog"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/super/log/req/latest": {
+            "get": {
+                "tags": [
+                    "super"
+                ],
+                "description": "最近一小时重启请求记录",
+                "operationId": "SuperController.LatestRequestRestartLog",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "jwt字符串",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/.RestartRequestLog"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/super/log/req/starttime/{starttime}/endtime/{endtime}": {
+            "get": {
+                "tags": [
+                    "super"
+                ],
+                "description": "重启请求记录",
+                "operationId": "SuperController.RestartRequestLog",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "jwt字符串",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "starttime",
+                        "description": "开始日期",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "endtime",
+                        "description": "结束日期",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/.RestartRequestLog"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/super/log/starttime/{starttime}/endtime/{endtime}": {
+            "get": {
+                "tags": [
+                    "super"
+                ],
+                "description": "重启日志(回执)",
+                "operationId": "SuperController.RestartLog",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "jwt字符串",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "starttime",
+                        "description": "开始日期",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "endtime",
+                        "description": "结束日期",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/.RestartLog"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/super/reg": {
+            "post": {
+                "tags": [
+                    "super"
+                ],
+                "description": "注册设备",
+                "operationId": "SuperController.CheckReg",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "jwt字符串",
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "regInfo",
+                        "description": "注册信息",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/.RegInfo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/.RegInfo"
+                        }
+                    }
+                }
+            }
+        },
+        "/super/restart": {
+            "post": {
+                "tags": [
+                    "super"
+                ],
+                "description": "重启应用",
+                "operationId": "SuperController.Restart",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "jwt字符串",
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "restartbody",
+                        "description": "重启需要的信息",
+                        "schema": {
+                            "$ref": "#/definitions/.Restart"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/.Restart"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        ".DataSnapStatus": {
+            "type": "object"
+        },
+        ".ProcessInfos": {
+            "type": "object"
+        },
+        ".RegInfo": {
+            "type": "object"
+        },
+        ".Restart": {
+            "type": "object"
+        },
+        ".RestartLog": {
+            "type": "object"
+        },
+        ".RestartRequestLog": {
+            "type": "object"
+        },
+        ".ToolSelf": {
+            "type": "object"
+        }
+    },
+    "tags": [
+        {
+            "name": "super",
+            "description": "宇宙超级无敌控制器\n"
+        }
+    ]
+}
